@@ -107,7 +107,7 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                                                  selected = NULL,
                                                                                  multiple = FALSE,
                                                                                  options = list(placeholder = "Select a Code"))
-                                                                  ),
+                                                           ),
                                                            column(width=3, 
                                                                   selectizeInput("select_asian",
                                                                                  "Asian Code",
@@ -316,7 +316,7 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                                                  selected = NULL,
                                                                                  multiple=FALSE,
                                                                                  options = list(placeholder = "Select a County"))
-                                                                  ),
+                                                           ),
                                                            column(width=4, #https://www2.census.gov/geo/docs/reference/codes/PLACElist.txt
                                                                   selectizeInput("municipality", label = " Municipality", 
                                                                                  choices = NULL,
@@ -341,7 +341,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                               
                                               
                                               
-                                              tabPanel("Q1", tags$hr(), value="Q1",
+                                              tabPanel("Q1 - All Police Incidents Demographics", tags$hr(), value="Q1",
+                                                       p("#1: What proportion of all police incidents go to different gender/race groups?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q1_plot"))),
@@ -361,7 +362,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                        uiOutput("Q1_interp", align="left", style="margin-bottom: 30px;")
                                               ),
                                               
-                                              tabPanel("Q2", tags$hr(), value="Q2",
+                                              tabPanel("Q2 - Traffic Violation Demographics", tags$hr(), value="Q2",
+                                                       p("#2: What proportion of incidents related to routine traffic/moving violations go to different gender/race groups?"), 
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q2_plot"))),
@@ -381,7 +383,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                        uiOutput("Q2_interp", align="left", style="margin-bottom: 30px;")
                                               ),
                                               
-                                              tabPanel("Q3", tags$hr(), value="Q3",
+                                              tabPanel("Q3 - Drug/Firearm Demographics", tags$hr(), value="Q3",
+                                                       p("#3: What proportion of incidents related to drug and/or firearm possession go to different gender/race groups?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q3_plot"))),
@@ -401,7 +404,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                        uiOutput("Q3_interp", align="left", style="margin-bottom: 30px;")
                                               ),
                                               
-                                              tabPanel("Q4", tags$hr(), value="Q4",
+                                              tabPanel("Q4 - Lifestyle Violation Demographics", tags$hr(), value="Q4",
+                                                       p("#4: What proportion of incidents related to quality of life violations go to different gender/race groups?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q4_plot"))),
@@ -421,7 +425,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                        uiOutput("Q4_interp", align="left", style="margin-bottom: 30px;")
                                               ),
                                               
-                                              tabPanel("Q5", tags$hr(), value="Q5",
+                                              tabPanel("Q5 - Arrest Demographics", tags$hr(), value="Q5",
+                                                       p("#5: What proportion of incidents resulting in arrest go to different gender/race groups?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q5_plot"))),
@@ -441,7 +446,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                        uiOutput("Q5_interp", align="left", style="margin-bottom: 30px;")
                                               ),
                                               
-                                              tabPanel("Q6", tags$hr(), value="Q6",
+                                              tabPanel("Q6 - Incident-to-Arrest Rates", tags$hr(), value="Q6",
+                                                       p("#6: What proportion of incidents result in arrest for different gender/race?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q6_plot"))),
@@ -458,7 +464,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                          shinycssloaders::withSpinner(DT::dataTableOutput("Q6_tab")), style="margin-bottom: 30px;"),
                                               ),
                                               
-                                              tabPanel("Q7", tags$hr(), value="Q7",
+                                              tabPanel("Q7 - Bond Demographics", tags$hr(), value="Q7",
+                                                       p("#7: How does average bond amount differ according to race and gender?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q7_plot"))),
@@ -475,7 +482,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                          shinycssloaders::withSpinner(DT::dataTableOutput("Q7_tab")), style="margin-bottom: 30px;"),
                                               ),
                                               
-                                              tabPanel("Q8", tags$hr(), value="Q8",
+                                              tabPanel("Q8 - Incidents Demographics by Beat", tags$hr(), value="Q8",
+                                                       p("#8: What proportion of police incidents go to different race groups within each patrolling beat/neighborhood?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q8_plot"))),
@@ -492,7 +500,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                          shinycssloaders::withSpinner(DT::dataTableOutput("Q8_tab")), style="margin-bottom: 30px;"),
                                               ),
                                               
-                                              tabPanel("Q9", tags$hr(), value="Q9",
+                                              tabPanel("Q9 - Officer-Related Incident Demographics", tags$hr(), value="Q9",
+                                                       p("#9: What proportion of police incidents go to different race groups for each of the most active officers?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q9_plot"))),
@@ -509,7 +518,8 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                          shinycssloaders::withSpinner(DT::dataTableOutput("Q9_tab")), style="margin-bottom: 30px;"),
                                               ),
                                               
-                                              tabPanel("Q10", tags$hr(), value="Q10",
+                                              tabPanel("Q10 - Incident Time Analysis", tags$hr(), value="Q10",
+                                                       p("#10: What proportion of police incidents occur during each weekday/hour of day?"),
                                                        fluidPage(
                                                          h1("Graphical Summary"),
                                                          fluidRow(shinycssloaders::withSpinner(plotOutput("Q10_plot"))),
@@ -525,6 +535,73 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                                                          h1("Numerical Summary"),
                                                          shinycssloaders::withSpinner(DT::dataTableOutput("Q10_tab")), style="margin-bottom: 30px;"),
                                               ),
+                                              tabPanel("Q11 - Force Use and Intersectional Identities", tags$hr(), value="Q11",
+                                                       p("#11: Are officers more likely to use force on subjects with specific intersectional identities?"),
+                                                       fluidPage(
+                                                         h1("Graphical Summary"),
+                                                         fluidRow(shinycssloaders::withSpinner(plotOutput("Q11_plot"))),
+                                                         fluidRow(
+                                                           column(width=2, textInput("Q11_height", "Height", value=7)),
+                                                           column(width=2, textInput("Q11_width", "Width", value=7)),
+                                                           column(width=2, selectInput("Q11_unit", "Units", choices = c("in", "cm"))),
+                                                           column(width=2, selectInput("Q11_format", "Format", choices = c("png", "pdf", "tiff", "bmp"))),
+                                                           column(width=2, downloadButton('Q11_downloadPlot'),style = "margin-top: 25px;"), #
+                                                           tags$head(tags$style(HTML(".selectize-input {height: 42px;}")))
+                                                         ),
+                                                         br(),
+                                                         h1("Numerical Summary"),
+                                                         shinycssloaders::withSpinner(DT::dataTableOutput("Q11_tab")), style="margin-bottom: 30px;"),
+                                              ),
+                                              tabPanel("Q12 - Street Checks and Intersectional Identities", tags$hr(), value="Q12",
+                                                       p("#12: Are subjects of specific intersectional identities stopped in street checks at higher rates?"),
+                                                       fluidPage(
+                                                         h1("Graphical Summary"),
+                                                         fluidRow(shinycssloaders::withSpinner(plotOutput("Q12_plot"))),
+                                                         fluidRow(
+                                                           column(width=2, textInput("Q12_height", "Height", value=7)),
+                                                           column(width=2, textInput("Q12_width", "Width", value=7)),
+                                                           column(width=2, selectInput("Q12_unit", "Units", choices = c("in", "cm"))),
+                                                           column(width=2, selectInput("Q12_format", "Format", choices = c("png", "pdf", "tiff", "bmp"))),
+                                                           column(width=2, downloadButton('Q12_downloadPlot'),style = "margin-top: 25px;"), #
+                                                           tags$head(tags$style(HTML(".selectize-input {height: 42px;}")))
+                                                         ),
+                                                         br(),
+                                                         h1("Numerical Summary"),
+                                                         shinycssloaders::withSpinner(DT::dataTableOutput("Q12_tab")), style="margin-bottom: 30px;"),
+                                              ),
+                                              tabPanel("Q13 - Interactions and Intersectional Identities", tags$hr(), value="Q13",
+                                                       p("#13: Are police initiating interactions at higher rates with subjects of specific intersectional identities?"),                                                       fluidPage(
+                                                         h1("Graphical Summary"),
+                                                         fluidRow(shinycssloaders::withSpinner(plotOutput("Q13_plot"))),
+                                                         fluidRow(
+                                                           column(width=2, textInput("Q13_height", "Height", value=7)),
+                                                           column(width=2, textInput("Q13_width", "Width", value=7)),
+                                                           column(width=2, selectInput("Q13_unit", "Units", choices = c("in", "cm"))),
+                                                           column(width=2, selectInput("Q13_format", "Format", choices = c("png", "pdf", "tiff", "bmp"))),
+                                                           column(width=2, downloadButton('Q13_downloadPlot'),style = "margin-top: 25px;"), #
+                                                           tags$head(tags$style(HTML(".selectize-input {height: 42px;}")))
+                                                         ),
+                                                         br(),
+                                                         h1("Numerical Summary"),
+                                                         shinycssloaders::withSpinner(DT::dataTableOutput("Q13_tab")), style="margin-bottom: 30px;"),
+                                              ),
+                                              tabPanel("Q14 - Search in Street Checks and Intersectional Identities", tags$hr(), value="Q14",
+                                                       p("#14: Are subjects of specific intersectional identities more likely to be searched if they are stopped in a street check?"),
+                                                       fluidPage(
+                                                         h1("Graphical Summary"),
+                                                         fluidRow(shinycssloaders::withSpinner(plotOutput("Q14_plot"))),
+                                                         fluidRow(
+                                                           column(width=2, textInput("Q14_height", "Height", value=7)),
+                                                           column(width=2, textInput("Q14_width", "Width", value=7)),
+                                                           column(width=2, selectInput("Q14_unit", "Units", choices = c("in", "cm"))),
+                                                           column(width=2, selectInput("Q14_format", "Format", choices = c("png", "pdf", "tiff", "bmp"))),
+                                                           column(width=2, downloadButton('Q14_downloadPlot'),style = "margin-top: 25px;"), #
+                                                           tags$head(tags$style(HTML(".selectize-input {height: 42px;}")))
+                                                         ),
+                                                         br(),
+                                                         h1("Numerical Summary"),
+                                                         shinycssloaders::withSpinner(DT::dataTableOutput("Q14_tab")), style="margin-bottom: 30px;"),
+                                              ),
                                   ))
                        ),
                        tabPanel("References",
@@ -534,5 +611,6 @@ ui<-tagList(tags$head(tags$link(rel = "icon", type = "image/x-icon",
                        )
             )
 )
+
 
 
